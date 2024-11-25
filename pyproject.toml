@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "project-sychev-b-24-515"
+version = "0.1.0"
+description = "First python package project"
+authors = ["Sychev Egor <sychevea06@gmail.com>"]
+license = "All rights reserved"
+readme = "README.md"
+packages = [
+    { include = "project_func" },
+]
+
+[tool.poetry.scripts]
+project = "project_func.scripts.main_base:main"
+database = "project_func.scripts.engine:main"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+prompt = "^0.4.1"
+
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^7.1.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
