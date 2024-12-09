@@ -9,3 +9,4 @@ poetry.lock
 dist
 project_func/__pycache__
 project_func/scripts/__pycache__
+database

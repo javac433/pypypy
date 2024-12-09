@@ -12,6 +12,7 @@ packages = [
 [tool.poetry.scripts]
 project = "project_func.scripts.main_base:main"
 database = "project_func.scripts.engine:main"
+database_crud = "project_func.scripts.engine:main"
 
 [tool.poetry.dependencies]
 python = "^3.12"

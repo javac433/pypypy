@@ -12,4 +12,13 @@
 asciinema-демонстрация работы программы:
 https://asciinema.org/a/1UKPw6CzdQ37Axgf7d0db0rJU
 
+Функционал по работе с записями в таблицах базы данных состоит в следующих инструкциях:
 
+1) create table val1,val2,val3... - создает в таблице table запись val1, val2, val3...
+2) read table [* | cols] [data] - читает из таблицы все столбцы и строки (*), некоторые столбцы (cols) или только те строки, в которых есть data
+3) update table expression [data] - изменяет те записи, в которых есть expression так, что они содержат data
+4) delete table expression - удаляет те записи, которые содержат expression
+5) info table - выводит название таблицы, количество столбцов и их наименования
+
+asciinema-демонстрация:
+https://asciinema.org/a/IOUX29zQKZMGP7Af3b80yJJ5V
