@@ -1,7 +1,7 @@
 from prettytable import PrettyTable
 import csv
 from .database import check
-
+from .database_dec import measure_time, check_uniqueness, confirm_action
 
 def get_cols(table_name):
     if check(table_name) == 0:
@@ -26,7 +26,8 @@ def get_last_id(table_name):
         return int(rows[-1][0])
     return 0
 
-
+@measure_time
+@confirm_action
 def create(table_name, args):
     if check(table_name) == 0:
         print("Table name is incorrect")
@@ -42,7 +43,7 @@ def create(table_name, args):
         writer.writerow(args)
     return "ERR_OK"
 
-
+@measure_time
 def read(table_name, cols, data):
     if check(table_name) == 0:
         print("Table name is incorrect")
@@ -73,7 +74,7 @@ def read(table_name, cols, data):
         return table.get_string()
     return table.get_string(fields=cols.split(','))
 
-
+@measure_time
 def update(table_name, data_old: str, data_new: list):
     if check(table_name) == 0:
         print("Table name is incorrect")
@@ -99,7 +100,8 @@ def update(table_name, data_old: str, data_new: list):
             writer.writerow(row)
     return "ERR_OK"
 
-
+@measure_time
+@confirm_action
 def delete(table_name, data):
     if check(table_name) == 0:
         print("Table name is incorrect")
@@ -115,7 +117,7 @@ def delete(table_name, data):
             for t in data_load:
                 if t not in cols:
                     return [t]
-                if row[cols.index(t)] != data_load[t]:
+                if row[cols.index(t)] != data_load[t] and row not in rows:
                     rows.append(row)
 
     with open(f'./database/{table_name}.csv', 'w') as file:

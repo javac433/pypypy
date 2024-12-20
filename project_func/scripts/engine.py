@@ -1,7 +1,7 @@
 #!/usr/env/python3
 
 from .database import create_t, check, delete_t
-from .database_crud import create, read, update, delete, info
+from .database_dec import create, read, update, delete, info
 import prompt
 
 
@@ -86,7 +86,7 @@ def main():
         elif cmd[0] == 'read':
             if len(cmd) < 3:
                 print("Too few arguments")
-            else:
+            else:   
                 print(read(cmd[1], cmd[2], cmd[3:]))
         elif cmd[0] == 'update':
             if len(cmd) < 4:
